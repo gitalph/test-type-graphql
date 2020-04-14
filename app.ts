@@ -5,6 +5,7 @@ import { buildSchema } from "type-graphql";
 
 import { BookResolver } from "./resolvers/BookResolver";
 import { Book } from "./models/Book";
+import { Author } from "./models/Author";
 
 async function main() {
   await createConnection({
@@ -16,8 +17,10 @@ async function main() {
       database: process.env.DB_NAME,
       synchronize: true,
       logging: false,
+      dropSchema: true,
       entities: [
-        Book
+        Book,
+        Author
       ]
   });
   const schema = await buildSchema({ resolvers: [BookResolver] });
