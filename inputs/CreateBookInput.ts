@@ -7,4 +7,7 @@ export class CreateBookInput {
 
   @Field()
   pageCount!: number;
+  
+  @Field()
+  authorName!: string
 }
