@@ -10,7 +10,7 @@ export class BookResolver {
   }
 
   @Query(() => Book)
-  book(@Arg("bookId") bookId: string) {
+  book(@Arg("bookId") bookId: number) {
     return Book.findOne({ where: { bookId } });
   }
 
